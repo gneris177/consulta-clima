@@ -6,40 +6,54 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="/public/css/style.css">
   <link rel="stylesheet" href="/public/css/reset.css">
-
+  <link rel="stylesheet" href="/public/css/style.css">
+  <link rel="stylesheet" href="/public/css/cloudAnimation.css">
 </head>
 
 <body>
-  <main>
-    <header class="header">
-      <h2>CONSULTA TEMPO</h2>
-    </header>
+  <header class="header">
+    <figure>
+      <img src="/public/img/cloud-icon.png" alt="">
+    </figure>
+    <h2 class="descrih3tion"></h2> 
+    <h1 class="cityNameContry title"> CONSULTE TEMPERATURA </h1>
+  </header>
 
-    <section class="sectionSearch">
-      <input type="text" class="inputCity">
-      <input type="text" class="inputState"> <br>
-      <button class="btnNow">COMEÇAR AGORA</button>
+  <main class="main">
+    <section class="tempo">
+      <div class="search">
+        <div class="containerInput">
+          <label>Cidade</label> <br>
+          <input type="text" placeholder="Cidade" class="inputCity">
+        </div>
+        
+        <div>
+          <label>Estado</label> <br>
+          <input type="text" placeholder="Estado" class="inputState">
+        </div>
+
+        <img src="/public/img/arrow.png" class="btnNow" alt="">
+      </div>
+
+      <div class="view">
+        <p class="temperature"></p>
+        <p class="cityName"></p>
+      </div>
     </section>
 
-    <section class="sectionView">
-      <div>
-        <p class="temp"></p>
-        <p>temperatura atual</p>
-      </div>
-
-      <div>
-        <h3>sensação termica</h3>
-        <p class="feelsLike">ok</p>
-      </div>
-
-      <div>
-        <h3>umidade</h3>
-        <p class="humidity">ok</p>
-      </div>
+    <section class="clouds">
+      <div class="cloud x1"></div>
+      <div class="cloud x2"></div>
+      <div class="cloud x3"></div>
+      <div class="cloud x4"></div>
+      <div class="cloud x5"></div>
     </section>
   </main>
+
+  <footer class="footer">
+    ok
+  </footer>
 
   <script src="/public/js/date.js"></script>
 </body>

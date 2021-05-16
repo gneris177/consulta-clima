@@ -1,21 +1,25 @@
-let btnNow = document.querySelector(".btnNow");
-let cityp = document.querySelector(".inputCity");
-let statep = document.querySelector(".inputState");
-
+//btn submit and inptus city and state
+const btnNow = document.querySelector(".btnNow");
+const city = document.querySelector(".inputCity");
+const state = document.querySelector(".inputState");
 //view
-let sectionView = document.querySelector(".sectionView");
-let temp = document.querySelector(".temp");
-let tempMin = document.querySelector(".tempMin");
-let tempMax = document.querySelector(".tempMax");
-let feelsLike = document.querySelector(".feelsLike");
-let humidity = document.querySelector(".humidity");
+const search = document.querySelector(".search");
+const viewS = document.querySelector(".view");
+//element text
+const temperature = document.querySelector(".temperature");
+const feelsLike = document.querySelector(".feelsLike");
+const humidity = document.querySelector(".humidity");
+const cityNameContry = document.querySelector(".cityNameContry");
+const cityName = document.querySelector(".cityName");
+const description = document.querySelector(".description");
+
 
 let date;
 
-async function getData(city, state) {
+async function getData() {
   try {
     const response = await fetch(
-      `https://weather.contrateumdev.com.br/api/weather/city/?city=feira de santana,bahia`
+      `https://weather.contrateumdev.com.br/api/weather/city/?city=${city.value},${state.value}`
     );
     date = await response.json();
   } catch (e) {
@@ -23,12 +27,18 @@ async function getData(city, state) {
   }
 }
 
+
 const view = async () => {
-  await getData();
-  humidity.innerHTML = date.main.humidity;
-  temp.innerText = `${date.main.temp}°`;
-  feelsLike.innerText = date.main.feels_like;
-  tempMin.innerText = date.main.temp_min;
+  await getData()
+  //style
+  search.style.display = 'none';
+  viewS.style.display = 'block';
+  //set text
+  temperature.innerHTML= date.main.temp;
+  cityName.innerHTML = date.name;
+  cityNameContry.innerHTML = `${date.name} - ${date.sys.country}`;
+  description.innerHTML = date.weather[0].description;
 };
+
 
 btnNow.onclick = () => view();
