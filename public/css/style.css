@@ -26,3 +26,13 @@
     border-radius: 35px;
     background-color: #fff;
 }
+
+.sectionView {
+ 
+
+}
+
+.temp {
+  flex-basis: 100%;
+  font-size: 5em;
+}
